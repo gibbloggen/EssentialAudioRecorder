@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="EssentialAudioRecorder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EssentialAudioRecorder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ControlTemplate x:Name="HoveringButton" TargetType="Button">
+
+            <Border BorderThickness="1"
+                        BorderBrush="Green" 
+                        CornerRadius="10"
+                        Padding="4"
+                        Background="{TemplateBinding Background}"
+                        
+                       
+                        Name="TheBorder"
+                        >
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Target="MGrid.Background" Value="#FFB8B1B1"/>
+                                <Setter Target="TheBorder.Background" Value="#FFB8B1B1"  />
+
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Target="MGrid.Background" Value="Green"/>
+                                <Setter Target="TheBorder.Background" Value="Green"  />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Target="MGrid.Background" Value="Blue"/>
+                                <Setter Target="TheBorder.Background" Value="Blue"  />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Disabled"/>
+
+
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <Grid x:Name="MGrid">
+                    <ContentControl Content="{TemplateBinding Content}"
+                                        VerticalContentAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                         Background="{TemplateBinding Background}"/>
+                </Grid>
+
+            </Border>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal" Margin="45,98,0, 20">
+
+            <Border Name="BadBorder" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Padding="2"  Background="#FFE8E6E6"   HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                <TextBox  Name="AudioName" BorderThickness="0" x:Uid="AudioFileName" IsReadOnly="True"  Background="#FFE8E6E6"  Foreground="Black" Text="Lecture File Name" Width="165" Height="25"   Opacity="0.75"></TextBox>
+            </Border>
+
+
+            <Button Width="87" Height="42" x:Uid="GetFileName" Name="GetFileName" VerticalAlignment="Top" VerticalContentAlignment="Top"  BorderThickness="0" FontSize="16"  Foreground="Black" Tapped="GetFileName_Tapped" Background="#FFB8B1B1" Template="{StaticResource HoveringButton}"  >Pick</Button>
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>
