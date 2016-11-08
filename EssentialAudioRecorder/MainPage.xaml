@@ -62,12 +62,18 @@
         </ControlTemplate>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Horizontal" Margin="45,98,0, 20">
- 
-            <Border Name="BadBorder" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Padding="2"  Background="#FFE8E6E6"   HorizontalAlignment="Center" VerticalAlignment="Top">
+    <Grid Name="Versatile">
+        <Grid.Background>
+            <ImageBrush   Stretch="Fill" ImageSource="Assets/EarSmallerPencil.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
 
-                <TextBox  Name="AudioName" BorderThickness="0" x:Uid="AudioFileName" IsReadOnly="True"  Background="#FFE8E6E6"  Foreground="Black" Text="Lecture File Name" Width="165" Height="25"   Opacity="0.75"></TextBox>
+        <StackPanel Orientation="Vertical" >
+        
+        <StackPanel Orientation="Horizontal" Margin="45,98,0, 0">
+
+                <Border Name="BadBorder"  Height="38" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Padding="2"  Background="#FFE8E6E6"   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0">
+
+                    <TextBox  Height="31" Name="AudioName" BorderThickness="0" x:Uid="AudioFileName" IsReadOnly="True"  Background="#FFE8E6E6"  Foreground="Black" Text="Audio File Name" Width="165"    Opacity="0.75"></TextBox>
             </Border>
 
 
@@ -77,5 +83,21 @@
 
         </StackPanel>
 
+            <TextBox FontSize="14" Name="NoMicrophone" Background="Red" IsReadOnly="True" x:Uid="NoMicrophone" Text="No Microphone Found, Microphone Required" Visibility="Collapsed" />
+            <TextBox FontSize="14" Name="BadDevice" Background="Red" IsReadOnly="True"  x:Uid="BadDevice" Text="An Incompatable Microphone Source was found." Visibility="Collapsed" />
+            <TextBox FontSize="14" Name="BadSetting" Background="Red" IsReadOnly="True" x:Uid="BadSetting" Text="There is a setting that is incompatable." Visibility="Collapsed" />
+
+            <ProgressRing x:Name="workingProgressRing"/>
+
+            <Border Name="BadBorder2" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Padding="2"  Background="#FFE8E6E6"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,15,0,0" >
+
+                <ComboBox Name="Microphones" Width="175"  Height="31" BorderThickness="0"  Background="#FFE8E6E6"  Foreground="Black"   Opacity="0.75"  />
+            </Border>
+            <Button Name="StartStop"  Margin="57,25,0,0"  Width="150" Content="Start Recording" Template="{StaticResource HoveringButton}" />
+            <TextBox Name="storeResult" Background="Red" Visibility="Collapsed"  />
+            <TextBox x:Uid="ManyThanks" TextAlignment="Center" Name="ManyThanks" IsReadOnly="True"  Background="LawnGreen" Foreground="Black" Width="325" Visibility="Collapsed"  Text="Huh???"/>
+
+
+        </StackPanel>
     </Grid>
 </Page>
