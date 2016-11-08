@@ -64,7 +64,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Horizontal" Margin="45,98,0, 20">
-
+ 
             <Border Name="BadBorder" BorderThickness="1" BorderBrush="Black" CornerRadius="3" Padding="2"  Background="#FFE8E6E6"   HorizontalAlignment="Center" VerticalAlignment="Top">
 
                 <TextBox  Name="AudioName" BorderThickness="0" x:Uid="AudioFileName" IsReadOnly="True"  Background="#FFE8E6E6"  Foreground="Black" Text="Lecture File Name" Width="165" Height="25"   Opacity="0.75"></TextBox>
